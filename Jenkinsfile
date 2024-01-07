@@ -5,7 +5,8 @@ pipeline {
       parallel {
         stage('Build Backend') {
           steps {
-            sh '''echo "
+            sh '''cd star-wars-backend
+echo "
 PORT=3000
 API_TOKEN=PeRVZ5p3RS7EzmdULoXWtulJUOcj61xfi1VKcCLJxOwz3k3t0eghJ8gZHSvbuyHC
 NODE_ENV=production
