@@ -12,22 +12,23 @@ API_TOKEN=PeRVZ5p3RS7EzmdULoXWtulJUOcj61xfi1VKcCLJxOwz3k3t0eghJ8gZHSvbuyHC
 NODE_ENV=production
 " > .env'''
             sh 'ls -al'
-            sh 'docker build ./star-wars-backend'
+            sh 'docker build ./star-wars-backend -t star-wars-backend/v1 .'
           }
         }
 
         stage('Build Frontend') {
           steps {
-            sh 'docker build ./star-wars-frontend'
+            sh 'docker build ./star-wars-frontend -t star-wars-frontend/v1 .'
           }
         }
 
       }
     }
 
-    stage('docker run') {
+    stage('docker push') {
       steps {
-        sh 'docker compose up'
+        sh '''docker push star-wars-frontend/v1 star-wars-frontend/v2
+'''
       }
     }
 
