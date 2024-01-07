@@ -25,5 +25,11 @@ NODE_ENV=production
       }
     }
 
+    stage('Docker Images') {
+      steps {
+        sh 'docker images'
+      }
+    }
+
   }
 }
