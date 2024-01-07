@@ -1,0 +1,12 @@
+name: star-wars-backend
+services:
+    web:
+      build: ./star-wars-backend/.
+      image: star-wars-backend/v1
+      ports:
+          - 3000:3000
+    web2:
+      build: ./star-wars-frontend/.
+      image: star-wars-frontend/v1
+      ports:
+          - 80:80
