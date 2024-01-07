@@ -1,0 +1,79 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "REST API for Star Wars (API Key : PeRVZ5p3RS7EzmdULoXWtulJUOcj61xfi1VKcCLJxOwz3k3t0eghJ8gZHSvbuyHC )",
+        "version": "1.0.0"
+    },
+    "schemes": [
+        "http"
+    ],
+    "components": {
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "x-api-key"
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost/"
+        },
+        {
+            "url": "http://localhost:3000/"
+        }
+    ],
+    "paths": {
+        "/api/star-wars": {
+            "get": {
+                "tags": [
+                    "StarWars"
+                ],
+                "summary": "Get details of Planets, Spaceships, Vehicles, People, Films and Species from all of star wars movie.",
+                "description": "Get details of Planets, Spaceships, Vehicles, People, Films and Species from all of star wars movie.",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Type of star wars movies",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": ["planets", "spaceships", "vehicles", "people", "films", "species"]
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of star wars types",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                },
+                "security": [
+                    {
+                      "ApiKeyAuth": []
+                    }
+                ]
+            }
+        }
+    }
+}

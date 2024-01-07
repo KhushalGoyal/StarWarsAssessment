@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col">
+      <h1>Star Wars App!</h1>
+    </div>
+    <div class="col mt-2 justify-content-end" style="display: flex;">
+      <mat-slide-toggle color="primary" [(ngModel)]="offlineService.onlineMode" (toggleChange)="changeAppMode()">{{ offlineService.onlineMode ? 'Online' : 'Offline'}}</mat-slide-toggle>
+    </div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row justify-content-center mt-5">
+      <div class="col">
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="type" required>
+            @for (type of types; track type) {
+            <mat-option [value]="type.value">{{type.label}}</mat-option>
+            }
+          </mat-select>
+          <mat-hint align="start" *ngIf="form.get('type')?.invalid && (form.get('type')?.dirty || form.get('type')?.touched)">
+            Please provide a type.
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput placeholder="Ex. Luke Skywalker">
+          <mat-hint align="start" *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)">
+            Please provide a name.
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col justify-content-end">
+        <button mat-raised-button color="primary mt-2" type="submit">Seach</button>
+      </div>
+    </div>
+  </form>
+  <div class="row justify-content-center mt-5">
+    <div class="col">
+      <mat-card>
+        <mat-progress-bar mode="indeterminate" *ngIf="startLoading"></mat-progress-bar>
+        <mat-card-content style="overflow-y: auto; height: 300px;"><pre>{{result | json }}</pre></mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
