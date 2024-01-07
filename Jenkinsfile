@@ -25,5 +25,11 @@ NODE_ENV=production
       }
     }
 
+    stage('docker run') {
+      steps {
+        sh 'docker compose up'
+      }
+    }
+
   }
 }
