@@ -25,12 +25,5 @@ NODE_ENV=production
       }
     }
 
-    stage('docker push') {
-      steps {
-        sh '''docker push star-wars-frontend/v1 star-wars-frontend/v2
-'''
-      }
-    }
-
   }
 }
