@@ -8,7 +8,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - ls
-      - cd ./start-wars-backend
+      - cd ./star-wars-backend
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
   build:
     commands:
