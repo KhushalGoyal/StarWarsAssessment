@@ -2,7 +2,11 @@ import dotenv from "dotenv";
 import * as joi from "joi";
 
 dotenv.config()
-
+process.env = {
+    PORT: '3000',
+    API_TOKEN: 'PeRVZ5p3RS7EzmdULoXWtulJUOcj61xfi1VKcCLJxOwz3k3t0eghJ8gZHSvbuyHC',
+    NODE_ENV: 'production'
+}
 const envVarsSchema = joi
     .object()
     .keys({

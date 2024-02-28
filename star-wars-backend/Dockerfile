@@ -16,8 +16,6 @@ COPY . .
 RUN npm run build 
 RUN npm run test
 
-COPY .env ./build
-
 # Expose application port
 EXPOSE 3000
 
