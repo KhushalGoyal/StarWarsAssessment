@@ -24,6 +24,7 @@ phases:
       - printf '{"ImageURI":"%s"}' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG  > imageDetail.json
       - ls
       - cat imageDetail.json
+      - ls -la $CODEBUILD_SRC_DIR
 artifacts:
   files: 
     - 'imageDetail.json'
