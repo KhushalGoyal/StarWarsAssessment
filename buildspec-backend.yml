@@ -26,4 +26,4 @@ phases:
       - cat imageDetail.json
 artifacts:
   files: 
-    - imageDetail.json
+    - 'imageDetail.json'
